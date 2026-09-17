@@ -13,6 +13,15 @@
  *   context.request.signal  — AbortSignal, set when /chat/stop is called
  *   conversation_id — conversation ID
  *   context.runId           — current run ID
+ *
+ * MCP Tool 声明（构建阶段扫描 agents/ 目录，解析头部注释块中的 @mcp_ 字段，
+ * 存在时即把该路由注册为 MCP Tool 并在 /mcp 上提供服务）:
+ *
+ * @mcp_tool_name chat
+ * @mcp_description 与 EdgeOne Makers 上的 OpenAI Agents SDK 示例 Agent 对话：传入一条用户消息，Agent 会自动按需调用 get_weather / get_clothing_advice / translate_text / text_statistics 工具，并返回最终回答
+ * @mcp_parameters
+ *   message: { "type": "string", "description": "发送给 Agent 的用户消息", "required": true }
+ *   userId: { "type": "string", "description": "可选的用户标识，用于隔离与检索会话历史；不传则不写入会话索引" }
  */
 
 import type { AgentContext } from '@edgeone/types';
