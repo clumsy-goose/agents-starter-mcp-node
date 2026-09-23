@@ -1,10 +1,10 @@
 const zh = {
   // Header
-  "app.title": "OpenAI Agents Starter",
+  "app.title": "Agents MCP Starter",
   "app.subtitle": "基于 EdgeOne Makers 运行，支持会话记忆和 Agent 工具",
 
   // Empty state
-  "empty.title": "OpenAI Agents Starter",
+  "empty.title": "Agents MCP Starter",
   "empty.hint": "我是运行在 EdgeOne 上的 OpenAI Agent，拥有自定义工具和会话记忆。我可以帮助你查询天气、穿衣建议、翻译和文本统计。",
   "empty.features": "EdgeOne Store · 会话记忆 · Agent 工具",
 

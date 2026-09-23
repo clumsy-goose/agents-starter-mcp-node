@@ -15,6 +15,12 @@
  *   @mcp_parameters    one `name: { ...json schema... }` per line;
  *                      `required: true` is read from each parameter's JSON
  *   @mcp_hidden        `true` → the route is NOT exposed as a MCP tool
+ *
+ * Registration rule (agent-mcp.md): a route is exposed as a MCP tool ONLY when
+ * its head comment declares at least one `@mcp_` field. A route without any
+ * declaration (e.g. agents/stop/index.ts) is NOT registered — no tool, no
+ * default schema. The defaults above only fill in individual fields that a
+ * declared route happens to omit.
  */
 
 export interface AgentMcpParam {
@@ -136,6 +142,10 @@ function parseRouteFile(key: string, source: string): AgentMcpToolMeta | null {
   if (!block) return null;
 
   const { tags, firstProse } = parseBlock(block);
+
+  // No `@mcp_` field at all → the platform does not register this route.
+  const declaresMcp = Object.keys(tags).some(tag => tag.startsWith('mcp_'));
+  if (!declaresMcp) return null;
 
   const hidden = (tags.mcp_hidden?.[0] ?? '').trim().toLowerCase() === 'true';
   if (hidden) return null;

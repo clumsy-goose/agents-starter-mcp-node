@@ -1,10 +1,10 @@
 const en = {
   // Header
-  "app.title": "OpenAI Agents Starter",
+  "app.title": "Agents MCP Starter",
   "app.subtitle": "Running on EdgeOne Makers with session memory & Agent Tools",
 
   // Empty state
-  "empty.title": "OpenAI Agents Starter",
+  "empty.title": "Agents MCP Starter",
   "empty.hint": "I'm an OpenAI Agent running on EdgeOne with custom tools and session memory. I can help with weather, clothing advice, translation, and text statistics.",
   "empty.features": "EdgeOne Store · Session Memory · Agent Tools",
 

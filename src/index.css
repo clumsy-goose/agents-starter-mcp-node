@@ -48,11 +48,42 @@ html, body, #root {
   overflow: hidden;
 }
 
-/* scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #d3dae1; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #b6c0c9; }
+/* scrollbar — thin and unobtrusive on the light theme */
+
+/*
+ * Firefox (no ::-webkit-scrollbar support) — use the standard properties.
+ * Chrome 121+ honours `scrollbar-width` and then ignores ::-webkit-scrollbar,
+ * so these MUST stay behind @supports or Chrome would render a thicker bar.
+ */
+@supports not selector(::-webkit-scrollbar) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d7dee5 transparent;
+  }
+}
+
+/* WebKit / Blink */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.45);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.65);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
 
 /* Language toggle */
 .lang-toggle {
