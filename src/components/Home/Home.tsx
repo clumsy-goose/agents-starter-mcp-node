@@ -198,7 +198,7 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.container}>
         {/* ── Title ── */}
-        <header className={styles.hero}>
+        <header className={`${styles.hero} ${styles.rise} ${styles.rise1}`}>
           <div className={styles.heroRow}>
             <span className={styles.logo}>⬡</span>
             <h1 className={styles.title}>Agents MCP Starter</h1>
@@ -208,7 +208,7 @@ export default function Home() {
             目录并自动注册 MCP Tool，任意支持 MCP 的客户端都可以通过标准协议直接调用。
           </p>
           <div className={styles.heroBadges}>
-            <span className={`${styles.heroBadge} ${styles.heroBadgePurple}`}>
+            <span className={`${styles.heroBadge} ${styles.heroBadgeAccent}`}>
               {displayTools.length} 个 MCP Tool
             </span>
             <span className={`${styles.heroBadge} ${styles.heroBadgePlain}`}>
@@ -219,7 +219,11 @@ export default function Home() {
 
         <div className={styles.cardGrid}>
         {/* ── How to enable MCP ── */}
-        <section className={styles.card} aria-labelledby='mcp-steps'>
+        <section
+          className={`${styles.card} ${styles.rise} ${styles.rise2}`}
+          aria-labelledby='mcp-steps'
+        >
+          <span className={styles.eyebrow}>Setup</span>
           <h2 id='mcp-steps' className={styles.cardTitle}>
             如何开启 MCP
           </h2>
@@ -252,7 +256,11 @@ export default function Home() {
         </section>
 
         {/* ── MCP config ── */}
-        <section className={styles.card} aria-labelledby='mcp-config'>
+        <section
+          className={`${styles.card} ${styles.rise} ${styles.rise3}`}
+          aria-labelledby='mcp-config'
+        >
+          <span className={styles.eyebrow}>Endpoint</span>
           <h2 id='mcp-config' className={styles.cardTitle}>
             MCP 配置
           </h2>
